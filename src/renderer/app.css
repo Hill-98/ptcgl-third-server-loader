@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  body {
+    @apply select-none;
+  }
+
+  *, *::after, *::before {
+    -webkit-user-drag: none;
+    user-select: inherit;
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  .link {
+    @apply text-sky-500;
+    @apply hover:underline;
+  }
+}
+
+@layer utilities {
+  .drag {
+    /*noinspection CssUnknownProperty*/
+    -webkit-app-region: drag;
+  }
+
+  .no-drag {
+    /*noinspection CssUnknownProperty*/
+    -webkit-app-region: no-drag;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    @apply bg-transparent;
+    @apply rounded-md;
+    @apply w-1;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-100;
+    @apply bg-opacity-70;
+    @apply rounded-md;
+  }
+}

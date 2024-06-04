@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>关于</title>
+  <link rel="stylesheet" href="../app.css">
+</head>
+<body>
+<div id="app" class="flex flex-col items-center">
+  <img id="logo" class="mt-6 size-1/2" src="app://images/logo" alt="logo">
+  <a
+    class="italic link mt-2 text-gray-500 text-xs"
+    href="https://www.flaticon.com/free-icons/card-game"
+    title="Card game icons"
+    target="_blank"
+    rel="external"
+  >
+    Card game icons created by mangsaabguru - Flaticon
+  </a>
+  <p id="name" class="font-bold mt-3 text-xl"></p>
+  <p id="version" class="mt-2 text-sm"></p>
+  <a id="homepage" class="link mt-3 text-xs" href="" target="_blank" rel="external"></a>
+  <button
+    id="ok"
+    class="bg-blue-500 font-medium mt-3 px-10 py-2 rounded-lg text-xs text-white active:brightness-90 hover:bg-blue-600"
+    onclick="window.close()"
+  >
+    确定
+  </button>
+</div>
+<script type="module">
+  document.querySelector('#homepage').href = RENDERER_PKG.homepage
+  document.querySelector('#homepage').textContent = '项目主页'
+  document.querySelector('#name').textContent = RENDERER_PKG.productName
+  document.querySelector('#version').textContent = `版本: ${RENDERER_PKG.version} (${BUILD_PLATFORM})`
+
+  window.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape') {
+      window.close()
+    }
+  })
+</script>
+</body>
+</html>
